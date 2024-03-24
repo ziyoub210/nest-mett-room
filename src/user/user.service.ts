@@ -45,10 +45,7 @@ export class UserService {
 
     try {
       await this.userRepository.save(newUser);
-      return {
-        statusCode: HttpStatus.OK,
-        message: '注册成功',
-      };
+      return null;
     } catch (error) {
       this.logger.error(error, UserService);
       return new HttpException('注册失败', HttpStatus.INTERNAL_SERVER_ERROR);
